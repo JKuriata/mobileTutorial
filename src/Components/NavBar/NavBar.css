@@ -1,0 +1,42 @@
+.navigation {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+}
+
+.navigation ul{
+
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    margin: 20px 0;
+    padding: 0 25px;
+}
+
+.navigation ul li{
+    list-style-type: none;
+    padding-right: 40px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 1000px){
+    .hamburger{
+        display: block;
+        position: fixed;
+        padding-top: 10px;
+        margin-left: 10px;
+        z-index: 10;
+        cursor: pointer;
+    }
+    .navigation ul{
+        display: none;
+    }
+    .navigation ul.open {
+        display: block;
+        background-color: black;
+    }
+}
