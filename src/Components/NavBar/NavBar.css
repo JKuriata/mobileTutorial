@@ -7,7 +7,15 @@
     display: flex;
     align-items: center;
     justify-content: right;
-    position: relative;
+    position: fixed;
+    top: 0;
+}
+
+/* Remove hyperlink styling */
+.navigation ul li a {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
 }
 
 /* Default navigation styling for larger screens */
@@ -32,38 +40,38 @@
     display: none;
 }
 
-/* Styles for smaller screens */
-@media (max-width: 1000px) {
+    /* Styles for smaller screens */
+    @media (max-width: 1000px) {
 
-    /* Show hamburger on smaller screens */
-    .hamburger {
-        display: block;
-        position: fixed;
-        margin-left: 10px;
-        z-index: 10;
-        cursor: pointer;
-    }
+        /* Show hamburger on smaller screens */
+        .hamburger {
+            display: block;
+            position: fixed;
+            margin-left: 10px;
+            z-index: 10;
+            cursor: pointer;
+        }
 
-    /* Hide the menu initially */
-    .navigation ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: black;
-        padding: 0;
-    }
+        /* Hide the menu initially */
+        .navigation ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            padding: 0;
+        }
 
-    /* Show the menu when open */
-    .navigation ul.open {
-        display: block;
-    }
+        /* Show the menu when open */
+        .navigation ul.open {
+            display: block;
+        }
 
-    /* Style the menu items in the dropdown */
-    .navigation ul.open li {
-        display: block;
-        padding: 1rem;
-        text-align: center;
+        /* Style the menu items in the dropdown */
+        .navigation ul.open li {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+        }
     }
-}
