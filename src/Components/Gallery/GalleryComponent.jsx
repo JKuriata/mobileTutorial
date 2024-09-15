@@ -5,18 +5,25 @@ export const GalleryComponent = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        // Use import.meta.glob to import all images from a directory
         const imageModules = import.meta.glob('../../assets/*.{jpg,png,svg}');
 
-        // Extract the paths and create an array of promises to import each image
         const imagePromises = Object.keys(imageModules).map((path) =>
-            imageModules[path]().then((module) => ({
-                src: module.default,
-                alt: path.split('/').pop() // Extract filename for alt text
-            }))
+            imageModules[path]().then((module) => {
+                const img = new Image();
+                img.src = module.default;
+                return new Promise((resolve) => {
+                    img.onload = () => {
+                        resolve({
+                            src: module.default,
+                            alt: path.split('/').pop(),
+                            width: img.width,
+                            height: img.height
+                        });
+                    };
+                });
+            })
         );
 
-        // Resolve all image imports and update state
         Promise.all(imagePromises).then((imageArray) => {
             setImages(imageArray);
         });
@@ -25,7 +32,13 @@ export const GalleryComponent = () => {
     return (
         <div className="gallery">
             {images.map((image, index) => (
-                <div key={index} className="gallery-item">
+                <div
+                    key={index}
+                    className="gallery-item"
+                    style={{
+                        gridRowEnd: `span ${Math.ceil(image.height / image.width * 4)}` // Adjust row span based on aspect ratio
+                    }}
+                >
                     <img src={image.src} alt={image.alt} />
                 </div>
             ))}
