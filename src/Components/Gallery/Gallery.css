@@ -22,7 +22,7 @@
 }
 
 .gallery-item:hover img {
-    transform: scale(300%);
+    transform: scale(1.1);
 }
 
 
