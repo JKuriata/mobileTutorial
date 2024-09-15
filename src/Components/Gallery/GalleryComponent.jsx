@@ -1,24 +1,32 @@
+import { useEffect, useState } from 'react';
 import "./Gallery.css";
-import Sebastian from "../../assets/Sebastian.jpg";
-import Roth from "../../assets/Roth.jpg";
 
 export const GalleryComponent = () => {
-    const data = [
-        {
-            id: 1, 
-            imgSrc: Sebastian
-        },
-        {
-            id: 2,
-            imgSrc: Roth
-        }
-    ];
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        // Use import.meta.glob to import all images from a directory
+        const imageModules = import.meta.glob('../../assets/*.{jpg,png,svg}');
+
+        // Extract the paths and create an array of promises to import each image
+        const imagePromises = Object.keys(imageModules).map((path) =>
+            imageModules[path]().then((module) => ({
+                src: module.default,
+                alt: path.split('/').pop() // Extract filename for alt text
+            }))
+        );
+
+        // Resolve all image imports and update state
+        Promise.all(imagePromises).then((imageArray) => {
+            setImages(imageArray);
+        });
+    }, []);
 
     return (
         <div className="gallery">
-            {data.map((item) => (
-                <div key={item.id} className="gallery-item">
-                    <img src={item.imgSrc} alt={`Image ${item.id}`} />
+            {images.map((image, index) => (
+                <div key={index} className="gallery-item">
+                    <img src={image.src} alt={image.alt} />
                 </div>
             ))}
         </div>
