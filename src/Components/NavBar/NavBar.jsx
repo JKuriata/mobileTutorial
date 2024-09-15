@@ -19,6 +19,7 @@ export const NavBar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/gallery">Gallery</Link></li>
             </ul>
             <div className="hamburger" onClick={toggleHamburger}>
                 <IconContext.Provider value={{ color: 'white', size: '50px' }}>

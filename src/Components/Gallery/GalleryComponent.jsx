@@ -1,16 +1,15 @@
 import "./Gallery.css";
 import Sebastian from "../../assets/Sebastian.jpg";
-import Roth from "../../assets/Roth.jpg"
+import Roth from "../../assets/Roth.jpg";
 
-export const Gallery = () => {
-    // Declare the data array before the return statement
+export const GalleryComponent = () => {
     const data = [
         {
-            id: 1, // Use a unique id for each image
+            id: 1, 
             imgSrc: Sebastian
         },
         {
-            id:2,
+            id: 2,
             imgSrc: Roth
         }
     ];
