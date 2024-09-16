@@ -1,4 +1,9 @@
 /* Navigation bar container */
+.navigation h1 {
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
 .navigation {
     width: 100%;
     height: 50px;
@@ -9,6 +14,7 @@
     justify-content: right;
     position: fixed;
     top: 0;
+    z-index: 10;
 }
 
 /* Remove hyperlink styling */
