@@ -15,7 +15,7 @@ export const NavBar = () => {
 
     return (
         <div className="navigation">
-            <h1>Name</h1>
+            <h1><Link to="/">Name</Link></h1>
             <ul className={hamburgerOpen ? 'open' : ''}>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
