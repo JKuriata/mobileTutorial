@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import "./Gallery.css";
+import './Gallery.css';
 
 export const GalleryComponent = () => {
     const [images, setImages] = useState([]);
@@ -15,7 +15,7 @@ export const GalleryComponent = () => {
                     img.onload = () => {
                         resolve({
                             src: module.default,
-                            alt: path.split('/').pop(),
+                            alt: path.split('/').pop(),  // Get the file name
                             width: img.width,
                             height: img.height
                         });
@@ -34,12 +34,15 @@ export const GalleryComponent = () => {
             {images.map((image, index) => (
                 <div
                     key={index}
-                    className="gallery-item"
+                    className={`gallery-item ${image.width > image.height ? 'landscape' : 'portrait'}`}
                     style={{
-                        gridRowEnd: `span ${Math.ceil(image.height / image.width * 4)}` // Adjust row span based on aspect ratio
+                        gridRowEnd: `span ${Math.ceil(image.height / image.width * 4)}`
                     }}
                 >
                     <img src={image.src} alt={image.alt} />
+                    <div className="overlay">
+                        <div className="title">{image.alt.split('.')[0]}</div>
+                    </div>
                 </div>
             ))}
         </div>
