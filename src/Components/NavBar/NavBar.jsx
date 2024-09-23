@@ -1,20 +1,34 @@
 //NavBar.jsx
 
 import './NavBar.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { IoMdMenu } from 'react-icons/io';
 import { IconContext } from 'react-icons/lib';
 import { Link } from "react-router-dom"
 
 export const NavBar = () => {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
+    const navRef = useRef(null);
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setHamburgerOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="navigation">
+        <div className="navigation" ref={navRef}>
             <h1><Link to="/">Name</Link></h1>
             <ul className={hamburgerOpen ? 'open' : ''}>
                 <li><Link to="/">Home</Link></li>
