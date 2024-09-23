@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Gallery.css';
 
 export const GalleryComponent = () => {
@@ -39,7 +41,12 @@ export const GalleryComponent = () => {
                         gridRowEnd: `span ${Math.ceil(image.height / image.width * 4)}`
                     }}
                 >
-                    <img src={image.src} alt={image.alt} />
+                    <LazyLoadImage
+                        src={image.src}
+                        alt={image.alt}
+                        effect="blur"
+                        wrapperClassName="lazy-load-image-wrapper"
+                    />
                     <div className="overlay">
                         <div className="title">{image.alt.split('.')[0]}</div>
                     </div>
