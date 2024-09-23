@@ -41,6 +41,7 @@ export const ContactComponent = () => {
 
   return (
     <div className="contact-form">
+        <h2>Contact me!</h2>
       {notification && <div className="notification">{notification}</div>}
       <form ref={form} onSubmit={sendEmail}>
         <label>Name</label>
