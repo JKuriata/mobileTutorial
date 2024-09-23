@@ -47,3 +47,12 @@
 .contact-form input[type="submit"]:hover {
   background-color: rgb(70, 135, 138);
 }
+
+.notification {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
