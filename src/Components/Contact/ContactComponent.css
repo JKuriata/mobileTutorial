@@ -35,14 +35,15 @@
 }
 
 .contact-form input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: cadetblue;
   color: white;
   border: none;
   cursor: pointer;
   padding: 15px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .contact-form input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: rgb(70, 135, 138);
 }
