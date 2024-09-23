@@ -10,3 +10,7 @@ body {
       background-color: rgb(225, 225, 225);
       margin-top: 4rem;
 }
+
+p {
+  padding: 1rem;
+}
