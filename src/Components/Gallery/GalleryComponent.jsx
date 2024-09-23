@@ -46,6 +46,8 @@ export const GalleryComponent = () => {
                         alt={image.alt}
                         effect="blur"
                         wrapperClassName="lazy-load-image-wrapper"
+                        width="100%"
+                        height="100%"
                     />
                     <div className="overlay">
                         <div className="title">{image.alt.split('.')[0]}</div>
