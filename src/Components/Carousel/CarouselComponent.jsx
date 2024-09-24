@@ -34,7 +34,8 @@ export const CarouselComponent = () => {
         );
 
         Promise.all(imagePromises).then((imageArray) => {
-            const randomImages = imageArray.sort(() => 0.5 - Math.random()).slice(0, 5);
+            const landscapeImages = imageArray.filter(img => img.width > img.height);
+            const randomImages = landscapeImages.sort(() => 0.5 - Math.random()).slice(0, 5);
             setImages(randomImages);
         });
     }, []);
