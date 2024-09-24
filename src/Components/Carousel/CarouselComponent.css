@@ -12,11 +12,13 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
 }
 
 .carousel-item.active {
     opacity: 1;
+    z-index: 2;
 }
 
 .carousel-item img {
@@ -35,6 +37,7 @@
     padding: 10px 15px;
     font-size: 18px;
     cursor: pointer;
+    z-index: 3;
 }
 
 .carousel-control.prev {

@@ -1,9 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './CarouselComponent.css';
 
 export const CarouselComponent = () => {
     const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = useCallback(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, [images.length]);
+
+    const prevSlide = useCallback(() => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    }, [images.length]);
 
     useEffect(() => {
         const imageModules = import.meta.glob('../../assets/*.{jpg,png,svg}');
@@ -32,13 +40,10 @@ export const CarouselComponent = () => {
         });
     }, []);
 
-    const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
+    useEffect(() => {
+        const intervalId = setInterval(nextSlide, 2000);
+        return () => clearInterval(intervalId);
+    }, [nextSlide]);
 
     return (
         <div className="carousel">
