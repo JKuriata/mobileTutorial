@@ -29,7 +29,7 @@ export const NavBar = () => {
 
     return (
         <div className="navigation" ref={navRef}>
-            <h1><Link to="/">Name</Link></h1>
+            <h1><Link to="/">Practice Gallery</Link></h1>
             <ul className={hamburgerOpen ? 'open' : ''}>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>

@@ -14,6 +14,7 @@ body {
 
 p {
   padding-left: 1rem;
+  padding-right: 1rem;
   margin-bottom: 1rem;
   font-size: 1.2rem;
   text-align: justify;
@@ -25,3 +26,6 @@ h2 {
   padding: 1rem;
 }
 
+.welcome {
+  text-align: center;
+}
