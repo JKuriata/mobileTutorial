@@ -4,9 +4,10 @@ export const Home = () => {
   return (
     <>
       <CarouselComponent />
-      <h1 className='welcome'>Welcome to Edgewood Art Gallery</h1>
+      <div className="content-wrapper">
+        <h1 className='welcome'>Welcome to Edgewood Art Gallery</h1>
 
-      <section id="about">
+        <section id="about">
         <p>
           Discover a world where creativity knows no bounds. At <strong>Edgewood Art Gallery</strong>, we bring you a carefully curated selection of contemporary art, featuring visionary works from both emerging and established artists. Our gallery is a vibrant space where artistic expression meets inspiration, offering visitors an immersive experience that sparks curiosity and connection.
         </p>
@@ -37,11 +38,12 @@ export const Home = () => {
         <p>
           Stay connected with our events, from artist-led workshops to interactive talks that bring you closer to the creative process. <strong>[Event Name]</strong> is coming soon – don’t miss it!
         </p>
-      </section>
+        </section>
 
-      <footer>
-        <p>Come visit us at Edgewood Art Gallery, where every visit is a journey into the extraordinary.</p>
-      </footer>
+        <footer>
+          <p>Come visit us at Edgewood Art Gallery, where every visit is a journey into the extraordinary.</p>
+        </footer>
+      </div>
     </>
   );
 };

@@ -1,7 +1,7 @@
 export function About() {
   return (
-    <>
-    <h2>About Us</h2>
+    <div className="content-wrapper">
+      <h2>About Us</h2>
       <p>Welcome to Edgewood Art Gallery, a curated space dedicated to celebrating creativity, innovation, and artistic expression. Our gallery brings together a diverse collection of art from emerging talents to renowned artists, offering a platform for individuals to connect with the art world in a meaningful way.</p>
       <p>At Edgewood Art Gallery, we believe art is a universal language that transcends boundaries, igniting conversation, inspiring emotion, and fostering cultural exchange. Our carefully selected exhibitions feature a wide range of mediums, including painting, sculpture, photography, digital art, and mixed media. Each piece in our collection reflects a unique story, showcasing the rich tapestry of human experience and creativity.</p>
       
@@ -12,6 +12,6 @@ export function About() {
       <p> Our mission is to nurture creativity, support artists, and make art accessible to all. We aim to provide a dynamic space where artistic expression thrives, and visitors leave inspired.</p>
       
       <p>Thank you for visiting Edgewood Art Gallery. We look forward to sharing the world of art with you.</p>
-    </>
+    </div>
   );
 }

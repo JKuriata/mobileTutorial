@@ -29,3 +29,9 @@ h2 {
 .welcome {
   text-align: center;
 }
+
+.content-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
