@@ -31,9 +31,17 @@ h2 {
 }
 
 .content-wrapper {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   padding: 1rem 0;
+}
+
+@media (min-width: 1000px) {
+  .content-wrapper {
+  width: 70%;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
 }
 
 .vertical-center {
