@@ -35,3 +35,10 @@ h2 {
   margin: 0 auto;
   padding: 1rem 0;
 }
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 4rem); /* Subtracting 4rem to account for the top margin of the body */
+}
