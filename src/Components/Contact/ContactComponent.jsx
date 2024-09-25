@@ -44,12 +44,9 @@ export const ContactComponent = () => {
         <h2>Contact me!</h2>
       {notification && <div className="notification">{notification}</div>}
       <form ref={form} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input type="text" name="user_name" />
-        <label>Email</label>
-        <input type="email" name="user_email" required />
-        <label>Message</label>
-        <textarea name="message" required />
+        <label> Name <input type="text" name="user_name" /></label>
+        <label> Email <input type="email" name="user_email" required /></label>
+        <label> Message <textarea name="message" required /></label>
         <input type="submit" value="Send" />
       </form>
     </div>
