@@ -1,6 +1,28 @@
 import { useState, useEffect, useCallback } from 'react';
 import './CarouselComponent.css';
 
+const loadImage = (module) => {
+    return new Promise((resolve) => {
+        const img = new Image();
+        img.src = module.default;
+        img.onload = () => {
+            resolve({
+                src: module.default,
+                alt: module.default.split('/').pop(),
+                width: img.width,
+                height: img.height
+            });
+        };
+    });
+};
+
+const loadImages = async (imageModules) => {
+    const imagePromises = Object.values(imageModules).map(module => module().then(loadImage));
+    const imageArray = await Promise.all(imagePromises);
+    const landscapeImages = imageArray.filter(img => img.width > img.height);
+    return landscapeImages.sort(() => 0.5 - Math.random()).slice(0, 5);
+};
+
 export const CarouselComponent = () => {
     const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,29 +37,7 @@ export const CarouselComponent = () => {
 
     useEffect(() => {
         const imageModules = import.meta.glob('../../assets/*.{jpg,png,svg}');
-
-        const imagePromises = Object.keys(imageModules).map((path) =>
-            imageModules[path]().then((module) => {
-                const img = new Image();
-                img.src = module.default;
-                return new Promise((resolve) => {
-                    img.onload = () => {
-                        resolve({
-                            src: module.default,
-                            alt: path.split('/').pop(),
-                            width: img.width,
-                            height: img.height
-                        });
-                    };
-                });
-            })
-        );
-
-        Promise.all(imagePromises).then((imageArray) => {
-            const landscapeImages = imageArray.filter(img => img.width > img.height);
-            const randomImages = landscapeImages.sort(() => 0.5 - Math.random()).slice(0, 5);
-            setImages(randomImages);
-        });
+        loadImages(imageModules).then(setImages);
     }, []);
 
     useEffect(() => {
