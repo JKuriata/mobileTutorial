@@ -1,1 +1,1 @@
-Originally this repo was just for playing with Kevin Huang and Ken Udeh's tutorials for building a reactive hamburger menu; The project however has developed into a demo version of a gallery site for my friend. In making this I learned about importing global to save me time on importing pictures, it also required a lot of revision of mapping to a. determine if a picture is landscape or portrait as well as setting up the name on hover. 
+A demo version of a gallery site for my friend/client.
